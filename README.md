@@ -4,89 +4,56 @@
 
 ## Installation
 
-### Claude Code CLI (Terminal)
+### Step 1: Clone the repo
 
 ```bash
-# Add the GitHub repo as a marketplace source
-/plugin marketplace add ramit-sharma/pm-research
-
-# Install the plugin
-/plugin install pm-research@ramit-sharma
-
-# Or install from a local clone
-git clone https://github.com/ramit-sharma/pm-research.git
-/plugin install --dir ./pm-research
+git clone https://github.com/ramitsharma94/pm-research-pro.git
 ```
 
-### VS Code (Claude Code Extension)
+### Step 2: Copy the skill to your Claude Code skills directory
 
-1. Open Claude Code in the sidebar
-2. Type `/plugins` in the chat input
-3. Switch to the **Marketplaces** tab
-4. Enter `ramit-sharma/pm-research` and add it
-5. Go to the **Plugins** tab, find `pm-research`, and click **Install**
-6. Choose your scope: **User** (all projects), **Project** (team-shared), or **Local** (just you, this repo)
-
-### JetBrains IDEs (Claude Code Extension)
-
-Open the embedded Claude Code terminal and run the same CLI commands:
+**For all projects (personal):**
 
 ```bash
-/plugin marketplace add ramit-sharma/pm-research
-/plugin install pm-research@ramit-sharma
+# macOS / Linux
+cp -r pm-research-pro/skills/pm-research ~/.claude/skills/
+
+# Windows (PowerShell)
+Copy-Item -Recurse pm-research-pro/skills/pm-research $env:USERPROFILE/.claude/skills/
 ```
 
-### Claude Code Desktop App (Mac / Windows)
-
-1. Open the Code tab
-2. Type `/plugins` in chat
-3. Add the marketplace and install — same flow as VS Code above
-
-### Claude Code Web (claude.ai/code)
-
-Use the CLI commands in the web terminal:
+**For a specific project only:**
 
 ```bash
-/plugin marketplace add ramit-sharma/pm-research
-/plugin install pm-research@ramit-sharma
+# Run this from your project's root directory
+cp -r pm-research-pro/skills/pm-research .claude/skills/
 ```
 
-### Kiro IDE
+### Where to install
 
-Kiro uses the Claude Code backend. Same CLI commands apply:
+| Scope | Path | Who can use it |
+|-------|------|----------------|
+| **Personal** | `~/.claude/skills/pm-research/` | You, across all projects |
+| **Project** | `<project-root>/.claude/skills/pm-research/` | Anyone working on this project |
+
+### Works on all platforms
+
+Once the skill is in place, it works everywhere Claude Code runs:
+- **CLI** (terminal)
+- **VS Code** (Claude Code extension)
+- **JetBrains IDEs** (Claude Code extension)
+- **Claude Code Desktop App** (Mac / Windows)
+- **Claude Code Web** (claude.ai/code)
+- **Kiro IDE**
+
+No extra setup needed per platform — just place the `SKILL.md` file and you're ready.
+
+### Uninstall
+
+Delete the `pm-research` folder from your skills directory:
 
 ```bash
-/plugin marketplace add ramit-sharma/pm-research
-/plugin install pm-research@ramit-sharma
-```
-
-### Installation Scopes
-
-| Scope | Who it applies to | Where it's stored |
-|-------|-------------------|-------------------|
-| **User** | You, across all projects | `~/.claude/plugins/` |
-| **Project** | Everyone on the team | `.claude/settings.json` |
-| **Local** | You only, this repo only | `.claude/settings.local.json` |
-
-Add `--scope user`, `--scope project`, or `--scope local` to the install command to choose.
-
-### Managing the Plugin
-
-```bash
-# List installed plugins
-/plugin
-
-# Disable without uninstalling
-/plugin disable pm-research@ramit-sharma
-
-# Re-enable
-/plugin enable pm-research@ramit-sharma
-
-# Reload after updates
-/reload-plugins
-
-# Uninstall
-/plugin uninstall pm-research@ramit-sharma
+rm -rf ~/.claude/skills/pm-research
 ```
 
 ---
