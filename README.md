@@ -4,17 +4,24 @@
 
 ## Installation
 
-### Step 1: Clone the repo
+### Via Plugin Marketplace (recommended)
 
-```bash
-git clone https://github.com/ramitsharma94/pm-research-pro.git
+In Claude Code:
+
+```
+/plugin marketplace add ramitsharma94/pm-research-pro
+/plugin install pm-research@ramitsharma94
 ```
 
-### Step 2: Copy the skill to your Claude Code skills directory
+This works across all platforms where Claude Code runs — CLI, VS Code, JetBrains, Desktop App, Web (claude.ai/code), and Kiro IDE.
 
-**For all projects (personal):**
+### Manual install
 
 ```bash
+# Clone the repo
+git clone https://github.com/ramitsharma94/pm-research-pro.git
+
+# Copy the skill to your Claude Code skills directory
 # macOS / Linux
 cp -r pm-research-pro/skills/pm-research ~/.claude/skills/
 
@@ -22,10 +29,9 @@ cp -r pm-research-pro/skills/pm-research ~/.claude/skills/
 Copy-Item -Recurse pm-research-pro/skills/pm-research $env:USERPROFILE/.claude/skills/
 ```
 
-**For a specific project only:**
+**For a specific project only** (run from your project root):
 
 ```bash
-# Run this from your project's root directory
 cp -r pm-research-pro/skills/pm-research .claude/skills/
 ```
 
@@ -36,25 +42,13 @@ cp -r pm-research-pro/skills/pm-research .claude/skills/
 | **Personal** | `~/.claude/skills/pm-research/` | You, across all projects |
 | **Project** | `<project-root>/.claude/skills/pm-research/` | Anyone working on this project |
 
-### Works on all platforms
-
-Once the skill is in place, it works everywhere Claude Code runs:
-- **CLI** (terminal)
-- **VS Code** (Claude Code extension)
-- **JetBrains IDEs** (Claude Code extension)
-- **Claude Code Desktop App** (Mac / Windows)
-- **Claude Code Web** (claude.ai/code)
-- **Kiro IDE**
-
-No extra setup needed per platform — just place the `SKILL.md` file and you're ready.
-
 ### Uninstall
 
-Delete the `pm-research` folder from your skills directory:
-
-```bash
-rm -rf ~/.claude/skills/pm-research
 ```
+/plugin uninstall pm-research@ramitsharma94
+```
+
+Or manually delete the `pm-research` folder from your skills directory.
 
 ---
 
